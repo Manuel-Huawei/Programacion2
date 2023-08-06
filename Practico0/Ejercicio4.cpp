@@ -1,59 +1,40 @@
 #include <stdio.h>
+#include <string.h>
+#define MAX_CHARACTERS 100
 
-int largoDeCadena(char *frase)
-{
-    int largo = 0;
-    char *cptr = &frase[largo];
+bool esPalindrome(char *frase, int largoFrase){
+    int inicio = 0;
+    int final = largoFrase - 1;
 
-    while (*cptr != false)
-    {
-        largo = largo + 1;
-        cptr = &frase[largo];
-    }
-
-    return largo;
-}
-
-bool esPalindrome(char *frase)
-{
-    int largo = largoDeCadena(frase);
-    int posicion = 0;
-    bool verifica_que_sea_palindromo = true;
-
-    while (verifica_que_sea_palindromo && (posicion <= (largo - 1 - posicion)))
-    {
-        printf("%c : %c\n", frase[posicion], frase[(largo - 1 - posicion)]);
-        if (frase[posicion] != frase[(largo - 1 - posicion)])
-        {
-            verifica_que_sea_palindromo = false;
+    while (final> inicio){
+        if(frase[inicio]!=frase[final]){
+            return false;
         }
-
-        posicion++;
+        inicio++;
+        final--;
     }
 
-    return verifica_que_sea_palindromo;
+    return true;
 }
 
-int main()
-{
+int main(int argc, char const *argv[]){
     char *frase;
+    char cadena[MAX_CHARACTERS];
+    frase = cadena;
 
-    frase = new char;
+    printf("Ingrese la palabra que desee, finaliza con .: ");
+    char letra;
+    scanf("%c", &letra);
 
-    printf("Ingresa la frase: ");
-
-    scanf("%[^\n]s", frase);
-
-    bool validation = esPalindrome(frase);
-
-    if (validation)
-    {
-        printf("La palabra: %s Si ES palindromo ", frase);
-    }
-    else
-    {
-        printf("La palabra: %s NO es palindromo ", frase);
+    int i = 0;
+    while (letra != '.'){
+        cadena[i] = letra;
+        scanf("%c", &letra);
+        i++;
     }
 
+    int largoFrase = strlen(frase);
+
+    printf("%d", esPalindrome(frase, largoFrase));
     return 0;
 }
