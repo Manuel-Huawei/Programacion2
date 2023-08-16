@@ -1,25 +1,40 @@
 #include <stdio.h>
 
-int main(int argc, char const *argv[]){
-    int array[] = {2,7,3,8,2,1,9};
+/* Inserta 'elem ' en 'A' y deja ordenado A[0 .. pos ].
+Precondición: 'A' es un arreglo de tamaño mayor a 'pos' y
+A[0..pos-1] est á ordenado .
+*/
 
-    for (int i = 0; i < 7; i++){
+void insertar (int *A , int pos , int elem ) {
+    int i = pos-1;
+
+    while ((i>= 0) && (A[i]>elem)) {
+        A [i+1] = A [i];
+        i--;
+    }
+
+    A [i+1] = elem;
+}
+
+/* Ordena A[0 .. n - 1]. */
+void insSort (int *A , int n ) {
+    for (int i = 1; i < n ; i++)
+        insertar (A , i-1 , A [i]);
+}
+
+
+int main(int argc, char const *argv[]){
+    int array[6] = {2,3,5,6,7};
+
+    for (int i = 0; i < 6; i++){
         printf("%d-", array[i]);
     }
 
     printf("\n");
+    insertar(array, 5 , 4);
 
-    for (int i = 1; i < 7; i++){
-        int temp = array[i];
-        int j = i-1;
-        while (j>=0 && array[j]>temp){
-            array[j+1]=array[j];
-            j--;
-        }
-        array[j+1]=temp;
-    }
-
-    for (int i = 0; i < 7; i++){
+    
+    for (int i = 0; i < 6; i++){
         printf("%d-", array[i]);
     }
 
