@@ -3,6 +3,7 @@
 		"typeinfo": "cpp",
 		"algorithm": "cpp",
 		"random": "cpp",
-		"bitset": "cpp"
+		"bitset": "cpp",
+		"array": "cpp"
 	}
 }
