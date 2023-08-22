@@ -10,6 +10,6 @@ int fibonacci(int posicion)
 
 int main(int argc, char const* argv[])
 {
-    printf("%d", fibonacci(8));
+    printf("%d", fibonacci(5));
     return 0;
 }
