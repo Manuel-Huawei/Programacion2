@@ -85,6 +85,15 @@ int sumaArray(int inicio, int fin, int array[])
     }
 }
 
+int gridPaths(int rows, int columns)
+{
+    if (rows == 1 || columns == 1) {
+        return 1;
+    } else {
+        return gridPaths(rows - 1, columns) + gridPaths(rows, columns - 1);
+    }
+}
+
 int main(int argc, char const* argv[])
 {
     int array1[] = { 1, 6, 2, 8, 2, 6 };
@@ -96,7 +105,8 @@ int main(int argc, char const* argv[])
     // printf("%d", posicionElementoRecursivo(array, 82, 0, 6));
     // printf("%d", potenciaRecursiva(2, 5));
     // printf("%d", sumaDigitos(1243));
-    printf("%d", sumaArray(0, 4, array2));
+    // printf("%d", sumaArray(0, 4, array2));
+    printf("%d", gridPaths(3, 3));
 
     return 0;
 }
