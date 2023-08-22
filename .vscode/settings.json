@@ -4,6 +4,13 @@
 		"algorithm": "cpp",
 		"random": "cpp",
 		"bitset": "cpp",
-		"array": "cpp"
-	}
+		"array": "cpp",
+		"ratio": "cpp"
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"[cpp]": {
+		"editor.defaultFormatter": "ms-vscode.cpptools"
+	},
+	"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Webkit }"
 }
